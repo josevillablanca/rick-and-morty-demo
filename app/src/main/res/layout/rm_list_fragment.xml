@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="listErrorContainer"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/listEmptyGroup"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="listEmptyContainer"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/listMainGroup"
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="There is no characters list"
+            android:text="@string/list_empty_title_text"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -129,7 +129,7 @@
             android:layout_marginBottom="36dp"
             android:fontFamily="@font/roboto_regular"
             android:gravity="center"
-            android:text="Try again "
+            android:text="@string/list_empty_subtitle_text"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -154,7 +154,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
             android:fontFamily="@font/roboto_regular"
-            android:text="Error"
+            android:text="@string/list_error_title_text"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +169,7 @@
             android:layout_marginEnd="42dp"
             android:fontFamily="@font/roboto_regular"
             android:gravity="center"
-            android:text="An Error has occurred"
+            android:text="@string/list_error_subtitle"
             android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -184,7 +184,7 @@
             android:layout_marginBottom="36dp"
             android:fontFamily="@font/roboto_medium"
             android:padding="16dp"
-            android:text="Retry"
+            android:text="@string/list_error_button_text"
             android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

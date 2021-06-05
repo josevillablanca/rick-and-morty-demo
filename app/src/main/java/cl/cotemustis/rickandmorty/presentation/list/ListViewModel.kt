@@ -19,8 +19,10 @@ class ListViewModel @Inject constructor(private val repository: RmRepository) : 
     val charactersListStatus: LiveData<Event<Resource<CharactersResponseData>>> =
         _charactersListStatus
 
-    fun retrieveCharacters() {
-        _charactersListStatus.postValue(Event(Resource.loading(null)))
+    fun retrieveCharacters(isRefreshing: Boolean) {
+        if(!isRefreshing){
+            _charactersListStatus.postValue(Event(Resource.loading(null)))
+        }
         viewModelScope.launch {
             val response = repository.getCharacters()
             _charactersListStatus.postValue(Event(response))

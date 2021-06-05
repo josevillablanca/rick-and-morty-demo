@@ -1,16 +1,12 @@
 package cl.cotemustis.rickandmorty.presentation.list
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import cl.cotemustis.rickandmorty.R
 import cl.cotemustis.rickandmorty.data.model.CharactersResponseData
-import cl.cotemustis.rickandmorty.data.utils.Resource
 import cl.cotemustis.rickandmorty.data.utils.Status
 import cl.cotemustis.rickandmorty.databinding.RmListFragmentBinding
 import cl.cotemustis.rickandmorty.utils.visible
@@ -43,23 +39,30 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.retrieveCharacters()
+        viewModel.retrieveCharacters(false)
         setObservers()
         setListeners()
     }
 
     private fun setListeners() {
 
+        binding.listSwipeRefreshLayout.setOnRefreshListener {
+            viewModel.retrieveCharacters(true)
+        }
+
+        binding.listErrorRetryButton.setOnClickListener {
+            viewModel.retrieveCharacters(false)
+        }
 
     }
 
     private fun setObservers() {
         viewModel.charactersListStatus.observe(viewLifecycleOwner, { event ->
             event.getContentIfNotHandled()?.let {
-                when(it.status){
-                    Status.LOADING ->{
+                when (it.status) {
+                    Status.LOADING -> {
                         // Show Loading
-                        showLoadingState(false)
+                        showLoadingState()
                     }
                     Status.ERROR -> {
                         //Show error message
@@ -77,15 +80,16 @@ class ListFragment : Fragment() {
     }
 
     private fun setData(data: CharactersResponseData?) {
-        if(data == null){
+        if (data == null) {
             showErrorState("Some problem occurred")
             return
         }
 
-        if( data.characterList.isNullOrEmpty()){
+        if (data.characterList.isNullOrEmpty()) {
             showEmptyStatus()
             return
         }
+        binding.listSwipeRefreshLayout.isRefreshing = false
         binding.listMainGroup.visible = true
         binding.listErrorGroup.visible = false
         binding.listEmptyGroup.visible = false
@@ -101,7 +105,7 @@ class ListFragment : Fragment() {
         binding.listProgressGroup.visible = false
     }
 
-    private fun showLoadingState(isRefreshing: Boolean) {
+    private fun showLoadingState() {
         binding.listEmptyGroup.visible = false
         binding.listErrorGroup.visible = false
         binding.listMainGroup.visible = false
