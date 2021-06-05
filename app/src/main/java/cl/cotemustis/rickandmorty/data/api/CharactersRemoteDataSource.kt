@@ -6,7 +6,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class CharactersRemoteDataSource @Inject constructor(private val api: RickMortiApi): RemoteDataSource{
+class CharactersRemoteDataSource @Inject constructor(private val api: RickMortyApi): RemoteDataSource{
 
     override suspend fun getCharacters(): CharactersResponseData = api.getCharacters()
 

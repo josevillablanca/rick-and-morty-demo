@@ -5,7 +5,7 @@ import cl.cotemustis.rickandmorty.data.model.CharactersResponseData
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-interface RickMortiApi {
+interface RickMortyApi {
 
     //Get characters with coroutine and detail data from the character
     @GET("/api/character")

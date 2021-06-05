@@ -3,7 +3,7 @@ package cl.cotemustis.rickandmorty.di
 import cl.cotemustis.rickandmorty.BuildConfig
 import cl.cotemustis.rickandmorty.data.api.ApiConstants
 import cl.cotemustis.rickandmorty.data.api.RMHttpInterceptor
-import cl.cotemustis.rickandmorty.data.api.RickMortiApi
+import cl.cotemustis.rickandmorty.data.api.RickMortyApi
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -19,7 +19,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class RickMortiApiModule {
+class RickMortyApiModule {
 
     companion object {
         private const val CONNECT_TIMEOUT = 60L
@@ -77,6 +77,6 @@ class RickMortiApiModule {
             .build()
 
     @Provides
-    fun provideRickMortiAPI(@Named("provideRMRetrofit") retrofit: Retrofit): RickMortiApi =
-        retrofit.create(RickMortiApi::class.java)
+    fun provideRickMortiAPI(@Named("provideRMRetrofit") retrofit: Retrofit): RickMortyApi =
+        retrofit.create(RickMortyApi::class.java)
 }
