@@ -8,5 +8,5 @@ data class CharactersResponseData(
     @Json(name = "info")
     val characterListInfoData: CharacterListInfoData? = null,
     @Json(name = "results")
-    val characterList: List<CharacterData>
+    val characterList: List<CharacterData>? = null
 )
