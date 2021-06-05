@@ -35,7 +35,7 @@ class ListViewModelTest {
             repository.setWillReturnError(false)
             val viewModel = ListViewModel(repository)
 
-            viewModel.retrieveCharacters()
+            viewModel.retrieveCharacters(true)
             val value = viewModel.charactersListStatus.getOrAwaitValueTest()
 
             assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.SUCCESS)
@@ -47,7 +47,7 @@ class ListViewModelTest {
             repository.setWillReturnError(true)
             val viewModel = ListViewModel(repository)
 
-            viewModel.retrieveCharacters()
+            viewModel.retrieveCharacters(true)
             val value = viewModel.charactersListStatus.getOrAwaitValueTest()
 
             assertThat(value.getContentIfNotHandled()?.status).isEqualTo(Status.ERROR)
