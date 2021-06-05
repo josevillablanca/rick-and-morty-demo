@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RickAndMortyDemo"
         android:fullBackupContent="false">
-        <activity android:name=".MainActivity">
+        <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

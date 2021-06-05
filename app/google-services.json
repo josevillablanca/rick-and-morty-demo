@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "499364439886-icpqan7pr9a0a7snknn15mgeccs1vqo4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.cotemustis.rickandmorty",
+            "certificate_hash": "fe55616fa3ff06d744201058bcb7b2dfe3312129"
+          }
+        },
+        {
           "client_id": "499364439886-tn9b3362todomn1entdtodunebcislrs.apps.googleusercontent.com",
           "client_type": 3
         }
