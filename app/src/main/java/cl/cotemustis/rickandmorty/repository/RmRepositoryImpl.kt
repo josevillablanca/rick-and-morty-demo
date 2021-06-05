@@ -9,8 +9,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class RMRepositoryImpl @Inject constructor(private val remoteDataSource: RemoteDataSource) :
-    RMRepository {
+class RmRepositoryImpl @Inject constructor(private val remoteDataSource: RemoteDataSource) :
+    RmRepository {
 
     override suspend fun getCharacters(): Resource<CharactersResponseData> {
         return try {

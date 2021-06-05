@@ -2,7 +2,7 @@ package cl.cotemustis.rickandmorty.presentation.list
 
 import cl.cotemustis.rickandmorty.data.utils.Status
 import cl.cotemustis.rickandmorty.utils.CoroutinesTestRule
-import cl.cotemustis.rickandmorty.utils.FakeRMRepository
+import cl.cotemustis.rickandmorty.utils.FakeRmRepository
 import cl.cotemustis.rickandmorty.utils.getOrAwaitValueTest
 import com.google.common.truth.Truth.assertThat
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -13,7 +13,7 @@ import org.junit.Test
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 
 @ExperimentalCoroutinesApi
-class RmListViewModelTest {
+class ListViewModelTest {
 
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
@@ -21,11 +21,11 @@ class RmListViewModelTest {
     @get:Rule
     var coroutinesTestRule = CoroutinesTestRule()
 
-    private lateinit var repository: FakeRMRepository
+    private lateinit var repository: FakeRmRepository
 
     @Before
     fun setup(){
-        repository = FakeRMRepository()
+        repository = FakeRmRepository()
     }
 
     @Test
@@ -33,7 +33,7 @@ class RmListViewModelTest {
         runBlockingTest {
             //Given
             repository.setWillReturnError(false)
-            val viewModel = RmListViewModel(repository)
+            val viewModel = ListViewModel(repository)
 
             viewModel.retrieveCharacters()
             val value = viewModel.charactersListStatus.getOrAwaitValueTest()
@@ -45,7 +45,7 @@ class RmListViewModelTest {
     fun `Given an error request for characters, it should return a livedata with a response error`() =
         runBlockingTest {
             repository.setWillReturnError(true)
-            val viewModel = RmListViewModel(repository)
+            val viewModel = ListViewModel(repository)
 
             viewModel.retrieveCharacters()
             val value = viewModel.charactersListStatus.getOrAwaitValueTest()
