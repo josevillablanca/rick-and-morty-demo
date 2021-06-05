@@ -4,7 +4,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.1"
@@ -13,6 +12,8 @@ buildscript {
         def nav_version = "2.3.5"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
         classpath 'com.google.dagger:hilt-android-gradle-plugin:2.35.1'
+
+        classpath 'com.google.gms:google-services:4.3.8'
     }
 }
 
@@ -20,7 +21,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
     }
 }
 
