@@ -3,8 +3,8 @@ package cl.cotemustis.rickandmorty.di
 import cl.cotemustis.rickandmorty.data.api.CharactersRemoteDataSource
 import cl.cotemustis.rickandmorty.data.api.RemoteDataSource
 import cl.cotemustis.rickandmorty.data.api.RickMortiApi
-import cl.cotemustis.rickandmorty.repository.RMRepository
-import cl.cotemustis.rickandmorty.repository.RMRepositoryImpl
+import cl.cotemustis.rickandmorty.repository.RmRepository
+import cl.cotemustis.rickandmorty.repository.RmRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,7 +19,7 @@ class RickMortiModule {
     @Provides
     fun provideRMRepositoryImpl(
         remoteDataSource: CharactersRemoteDataSource
-    ) = RMRepositoryImpl(remoteDataSource) as RMRepository
+    ) = RmRepositoryImpl(remoteDataSource) as RmRepository
 
     @Singleton
     @Provides

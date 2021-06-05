@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.cotemustis.rickandmorty.data.model.CharactersResponseData
 import cl.cotemustis.rickandmorty.data.utils.Resource
-import cl.cotemustis.rickandmorty.repository.RMRepository
+import cl.cotemustis.rickandmorty.repository.RmRepository
 import cl.cotemustis.rickandmorty.utils.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RmListViewModel @Inject constructor(private val repository: RMRepository) : ViewModel() {
+class ListViewModel @Inject constructor(private val repository: RmRepository) : ViewModel() {
 
     private val _charactersListStatus = MutableLiveData<Event<Resource<CharactersResponseData>>>()
     val charactersListStatus: LiveData<Event<Resource<CharactersResponseData>>> =

@@ -3,9 +3,9 @@ package cl.cotemustis.rickandmorty.utils
 import cl.cotemustis.rickandmorty.data.model.CharacterData
 import cl.cotemustis.rickandmorty.data.model.CharactersResponseData
 import cl.cotemustis.rickandmorty.data.utils.Resource
-import cl.cotemustis.rickandmorty.repository.RMRepository
+import cl.cotemustis.rickandmorty.repository.RmRepository
 
-class FakeRMRepository : RMRepository{
+class FakeRmRepository : RmRepository{
 
     private var willReturnError = false
 

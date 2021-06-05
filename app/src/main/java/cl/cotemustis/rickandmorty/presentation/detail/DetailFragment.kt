@@ -1,4 +1,4 @@
-package cl.cotemustis.rickandmorty.presentation.list
+package cl.cotemustis.rickandmorty.presentation.detail
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,24 +8,24 @@ import android.view.View
 import android.view.ViewGroup
 import cl.cotemustis.rickandmorty.R
 
-class RmListFragment : Fragment() {
+class DetailFragment : Fragment() {
 
     companion object {
-        fun newInstance() = RmListFragment()
+        fun newInstance() = DetailFragment()
     }
 
-    private lateinit var viewModel: RmListViewModel
+    private lateinit var viewModel: DetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.rm_list_fragment, container, false)
+        return inflater.inflate(R.layout.detail_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(RmListViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
