@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="cl.cotemustis.rickandmorty.presentation.list.ListFragment"
+        android:label="rm_list_fragment"
+        tools:layout="@layout/rm_list_fragment">
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in_exit"
+            app:popExitAnim="@anim/slide_out_exit"
+            app:popUpTo="@id/listFragment" >
+            <argument
+                android:name="characterId"
+                app:argType="integer"
+                android:defaultValue="0" />
+
+            <argument
+                android:name="characterName"
+                app:argType="string"
+                android:defaultValue="" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="cl.cotemustis.rickandmorty.presentation.detail.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" />
+</navigation>

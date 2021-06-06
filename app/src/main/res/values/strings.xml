@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Rick And Morty Demo</string>
+    <string name="item_location_placeholder">Location: %s</string>
+    <string name="item_status_placeholder">Status: %s</string>
+    <string name="list_error_title_text">Unable to retrieve Characters</string>
+    <string name="list_error_subtitle">An error occurred, try to retry the operation</string>
+    <string name="list_error_button_text">Retry</string>
+    <string name="list_empty_title_text">No characters found</string>
+    <string name="list_empty_subtitle_text">Try again, later</string>
+
+    <string name="detail_error_title_text">Unable to load Character data</string>
+    <string name="detail_status_placeholder">Status: %s</string>
+    <string name="detail_species_placeholder">Species: %s</string>
+    <string name="detail_gender_placeholder">Gender: %s</string>
+    <string name="detail_origin_placeholder">Origin: %s</string>
+    <string name="detail_location_placeholder">Location: %s</string>
+
 </resources>
