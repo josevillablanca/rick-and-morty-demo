@@ -19,6 +19,7 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/menu_list"
             app:title="Rick and Morty Band" />
 
     </com.google.android.material.appbar.AppBarLayout>

@@ -27,6 +27,16 @@
                 android:defaultValue=""
                 app:argType="string" />
         </action>
+        <action
+            android:id="@+id/action_listFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_exit"
+            app:exitAnim="@anim/slide_out_exit"
+            app:launchSingleTop="true"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out"
+            app:popUpTo="@+id/main_nav_graph"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/detailFragment"

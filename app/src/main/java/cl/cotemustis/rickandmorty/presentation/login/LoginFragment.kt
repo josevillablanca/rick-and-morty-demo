@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navGraphViewModels
 import cl.cotemustis.rickandmorty.R
@@ -124,6 +125,11 @@ class LoginFragment : Fragment() {
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    Toast.makeText(
+                        requireContext(),
+                        "There was a problem, please try again later",
+                        Toast.LENGTH_LONG
+                    ).show()
                     updateUI(null)
                 }
             }
@@ -131,10 +137,10 @@ class LoginFragment : Fragment() {
 
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser == null) {
-            //Show toast error and suggest to skip this step
             return
         }
         //Navigate to main list view
+        findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToListFragment())
     }
 
 
