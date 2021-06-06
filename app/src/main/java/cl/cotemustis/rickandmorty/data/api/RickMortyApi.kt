@@ -11,6 +11,6 @@ interface RickMortyApi {
     @GET("/api/character")
     suspend fun getCharacters(): CharactersResponseData
 
-    @GET("/api/{id}")
+    @GET("/api/character/{id}")
     suspend fun getCharacterById(@Path("id") id: Int): CharacterData
 }

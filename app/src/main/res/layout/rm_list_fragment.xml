@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.list.ListFragment">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="listErrorContainer"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/listEmptyGroup"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="listEmptyContainer"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
     <androidx.constraintlayout.widget.Group
         android:id="@+id/listMainGroup"
@@ -53,7 +53,7 @@
         android:id="@+id/listProgressGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="listProgressBar"
         tools:visibility="gone" />
 
@@ -109,28 +109,26 @@
 
         <TextView
             android:id="@+id/listEmptyTitleTextView"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:fontFamily="@font/roboto_regular"
             android:text="@string/list_empty_title_text"
-            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/listEmptySubtitleTextView"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="42dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="42dp"
             android:layout_marginBottom="36dp"
-            android:fontFamily="@font/roboto_regular"
             android:gravity="center"
             android:text="@string/list_empty_subtitle_text"
-            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -150,27 +148,25 @@
 
         <TextView
             android:id="@+id/listErrorTitleTextView"
+            style="@style/TextAppearance.MaterialComponents.Headline6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="36dp"
-            android:fontFamily="@font/roboto_regular"
             android:text="@string/list_error_title_text"
-            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/listErrorSubtitleTextView"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="42dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="42dp"
-            android:fontFamily="@font/roboto_regular"
             android:gravity="center"
             android:text="@string/list_error_subtitle"
-            android:textSize="17sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/listErrorTitleTextView" />
@@ -182,10 +178,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="36dp"
-            android:fontFamily="@font/roboto_medium"
             android:padding="16dp"
             android:text="@string/list_error_button_text"
-            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

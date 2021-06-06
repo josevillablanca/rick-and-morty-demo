@@ -15,12 +15,14 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailViewModel @Inject constructor(private val repository: RmRepository) : ViewModel() {
 
+
     private val _detailStatus = MutableLiveData<Event<Resource<CharacterData>>>()
     val detailStatus: LiveData<Event<Resource<CharacterData>>> = _detailStatus
 
     var id: Int = 0
+    var name: String = ""
 
-    fun getCharacterDetail(){
+    fun getCharacterDetail() {
         _detailStatus.postValue(Event(Resource.loading(null)))
         viewModelScope.launch {
             val response = repository.getCharacterById(id)
