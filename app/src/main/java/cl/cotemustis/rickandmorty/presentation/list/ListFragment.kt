@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import cl.cotemustis.rickandmorty.R
 import cl.cotemustis.rickandmorty.data.model.CharactersResponseData
 import cl.cotemustis.rickandmorty.data.utils.Status
 import cl.cotemustis.rickandmorty.databinding.RmListFragmentBinding
 import cl.cotemustis.rickandmorty.utils.visible
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -55,7 +58,23 @@ class ListFragment : Fragment() {
         }
 
         adapter.setOnItemClickListener { id, name ->
-            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(id, name))
+            findNavController().navigate(
+                ListFragmentDirections.actionListFragmentToDetailFragment(
+                    id,
+                    name
+                )
+            )
+        }
+
+        binding.listToolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_logout -> {
+                    Firebase.auth.signOut()
+                    findNavController().navigate(ListFragmentDirections.actionListFragmentToLoginFragment())
+                    true
+                }
+                else -> false
+            }
         }
 
     }
@@ -99,7 +118,7 @@ class ListFragment : Fragment() {
         binding.charactersRecyclerView.adapter = adapter
     }
 
-    private fun showMainContainer(){
+    private fun showMainContainer() {
         binding.listMainGroup.visible = true
         binding.listErrorGroup.visible = false
         binding.listEmptyGroup.visible = false
