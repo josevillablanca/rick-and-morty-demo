@@ -54,8 +54,8 @@ class ListFragment : Fragment() {
             viewModel.retrieveCharacters(false)
         }
 
-        adapter.setOnItemClickListener {
-            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it))
+        adapter.setOnItemClickListener { id, name ->
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(id, name))
         }
 
     }

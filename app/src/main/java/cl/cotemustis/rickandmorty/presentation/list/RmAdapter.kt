@@ -35,9 +35,9 @@ class RmAdapter @Inject constructor(
         get() = differ.currentList
         set(value) = differ.submitList(value)
 
-    private var onItemClickListener: ((Int) -> Unit)? = null
+    private var onItemClickListener: ((Int, String) -> Unit)? = null
 
-    fun setOnItemClickListener(listener: (Int) -> Unit) {
+    fun setOnItemClickListener(listener: (Int, String) -> Unit) {
         onItemClickListener = listener
     }
 
@@ -66,7 +66,7 @@ class RmAdapter @Inject constructor(
 
         holder.itemContainer.setOnClickListener {
             onItemClickListener?.let { click ->
-                character.id?.let { id -> click(id) }
+                character.id?.let { id -> click(id, character.name) }
             }
         }
 

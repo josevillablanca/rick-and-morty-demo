@@ -22,6 +22,11 @@
                 android:name="characterId"
                 app:argType="integer"
                 android:defaultValue="0" />
+
+            <argument
+                android:name="characterName"
+                app:argType="string"
+                android:defaultValue="" />
         </action>
     </fragment>
     <fragment
