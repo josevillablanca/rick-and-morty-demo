@@ -10,7 +10,7 @@ Use this in your terminal:
 
 # Description
 
-The following project is a List-Detail app with characters from the Rick and Morty's API, that is an Open Source API.
+The following project is a List-Detail app with characters from the Rick and Morty's API, which is an Open Source API.
 
 It uses MVVM pattern for the development.
 
