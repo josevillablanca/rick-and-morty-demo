@@ -41,21 +41,19 @@
                 android:id="@+id/imageContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:cardElevation="8dp"
-                >
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/detailImageView"
                     android:layout_width="match_parent"
-                    android:layout_height="260dp"
+                    android:layout_height="200dp"
                     android:scaleType="fitCenter"
                     tools:srcCompat="@drawable/test_picture" />
 
             </com.google.android.material.card.MaterialCardView>
-
 
 
             <TextView
@@ -64,8 +62,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:ellipsize="end"
                 android:maxLines="2"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -109,8 +107,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:ellipsize="end"
                 android:maxLines="2"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -124,8 +122,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 android:ellipsize="end"
                 android:maxLines="2"
                 app:layout_constraintEnd_toEndOf="parent"

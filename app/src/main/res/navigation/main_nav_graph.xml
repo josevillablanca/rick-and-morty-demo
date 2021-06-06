@@ -9,5 +9,24 @@
         android:id="@+id/listFragment"
         android:name="cl.cotemustis.rickandmorty.presentation.list.ListFragment"
         android:label="rm_list_fragment"
-        tools:layout="@layout/rm_list_fragment" />
+        tools:layout="@layout/rm_list_fragment">
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in_exit"
+            app:popExitAnim="@anim/slide_out_exit"
+            app:popUpTo="@id/listFragment" >
+            <argument
+                android:name="characterId"
+                app:argType="integer"
+                android:defaultValue="0" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="cl.cotemustis.rickandmorty.presentation.detail.DetailFragment"
+        android:label="detail_fragment"
+        tools:layout="@layout/detail_fragment" />
 </navigation>

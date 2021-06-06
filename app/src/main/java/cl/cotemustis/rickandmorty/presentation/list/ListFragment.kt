@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import cl.cotemustis.rickandmorty.data.model.CharactersResponseData
 import cl.cotemustis.rickandmorty.data.utils.Status
 import cl.cotemustis.rickandmorty.databinding.RmListFragmentBinding
@@ -33,13 +34,12 @@ class ListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = RmListFragmentBinding.inflate(layoutInflater, container, false)
+        _binding = RmListFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.retrieveCharacters(false)
         setObservers()
         setListeners()
     }
@@ -54,11 +54,15 @@ class ListFragment : Fragment() {
             viewModel.retrieveCharacters(false)
         }
 
+        adapter.setOnItemClickListener {
+            findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailFragment(it))
+        }
+
     }
 
     private fun setObservers() {
         viewModel.charactersListStatus.observe(viewLifecycleOwner, { event ->
-            event.getContentIfNotHandled()?.let {
+            event.peekContent().let {
                 when (it.status) {
                     Status.LOADING -> {
                         // Show Loading
@@ -90,12 +94,16 @@ class ListFragment : Fragment() {
             return
         }
         binding.listSwipeRefreshLayout.isRefreshing = false
+        showMainContainer()
+        adapter.characters = data.characterList
+        binding.charactersRecyclerView.adapter = adapter
+    }
+
+    private fun showMainContainer(){
         binding.listMainGroup.visible = true
         binding.listErrorGroup.visible = false
         binding.listEmptyGroup.visible = false
         binding.listProgressGroup.visible = false
-        adapter.characters = data.characterList
-        binding.charactersRecyclerView.adapter = adapter
     }
 
     private fun showErrorState(message: String?) {

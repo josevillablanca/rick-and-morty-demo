@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import cl.cotemustis.rickandmorty.R
 import cl.cotemustis.rickandmorty.databinding.DetailFragmentBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,6 +34,13 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setListeners()
+    }
+
+    private fun setListeners() {
+        binding.detailToolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
 }
