@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "499364439886",
+    "project_id": "rick-and-morty-cotemustis",
+    "storage_bucket": "rick-and-morty-cotemustis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499364439886:android:854d0658219d7575b0e01f",
+        "android_client_info": {
+          "package_name": "cl.cotemustis.rickandmorty"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499364439886-icpqan7pr9a0a7snknn15mgeccs1vqo4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cl.cotemustis.rickandmorty",
+            "certificate_hash": "fe55616fa3ff06d744201058bcb7b2dfe3312129"
+          }
+        },
+        {
+          "client_id": "499364439886-tn9b3362todomn1entdtodunebcislrs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIu1gKRnHDuoXdKfI3cW_xvMGyemURqMw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499364439886-tn9b3362todomn1entdtodunebcislrs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
