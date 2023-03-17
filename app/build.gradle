@@ -11,17 +11,20 @@ plugins {
 apply from: "$rootProject.rootDir/distribution/signing.gradle"
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    namespace 'com.cotemustis.rickandmorty'
+    compileSdkVersion 33
 
     defaultConfig {
-        applicationId "cl.cotemustis.rickandmorty"
-        minSdkVersion 23
-        targetSdkVersion 30
+        applicationId "com.cotemustis.rickandmorty"
+        minSdkVersion 24
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
 
     buildTypes {
@@ -40,10 +43,24 @@ android {
 
     buildFeatures {
         viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_compiler_version
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
     }
 }
 
 dependencies {
+
+    implementation project(":libraries:data")
+    implementation project(":libraries:domain")
+    implementation project(":libraries:presentation")
 
 //    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -58,34 +75,22 @@ dependencies {
     testImplementation "androidx.arch.core:core-testing:2.1.0"
 
     // Dagger Hilt
-    implementation 'com.google.dagger:hilt-android:2.38.1'
-    kapt 'com.google.dagger:hilt-compiler:2.38.1'
+    implementation "com.google.dagger:hilt-android:$hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
     implementation 'androidx.hilt:hilt-navigation-fragment:1.0.0'
 
     // For instrumentation tests
-    androidTestImplementation  'com.google.dagger:hilt-android-testing:2.38.1'
-    kaptAndroidTest 'com.google.dagger:hilt-compiler:2.38.1'
+    androidTestImplementation  "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptAndroidTest "com.google.dagger:hilt-compiler:$hilt_version"
 
     // For local unit tests
-    testImplementation 'com.google.dagger:hilt-android-testing:2.38.1'
-    kaptTest 'com.google.dagger:hilt-compiler:2.38.1'
+    testImplementation "com.google.dagger:hilt-android-testing:$hilt_version"
+    kaptTest "com.google.dagger:hilt-compiler:$hilt_version"
 
-    // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
-
-    // Moshi
-    implementation("com.squareup.moshi:moshi:1.12.0")
-    kapt("com.squareup.moshi:moshi-kotlin-codegen:1.12.0")
 
     // Kotlin Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3'
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.0'
-
-    // Okhttp
-    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
-    implementation "com.squareup.okhttp3:okhttp-urlconnection:4.9.0"
 
     // KTX
     implementation "androidx.core:core-ktx:1.6.0"

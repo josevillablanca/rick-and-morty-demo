@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="cl.cotemustis.rickandmorty.presentation.list.ListFragment"
+        android:name="com.cotemustis.rickandmorty.presentation.list.ListFragment"
         android:label="rm_list_fragment"
         tools:layout="@layout/rm_list_fragment">
         <action
@@ -40,12 +40,12 @@
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
-        android:name="cl.cotemustis.rickandmorty.presentation.detail.DetailFragment"
+        android:name="com.cotemustis.rickandmorty.presentation.detail.DetailFragment"
         android:label="detail_fragment"
         tools:layout="@layout/detail_fragment" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="cl.cotemustis.rickandmorty.presentation.login.LoginFragment"
+        android:name="com.cotemustis.rickandmorty.presentation.login.LoginFragment"
         android:label="login_fragment"
         tools:layout="@layout/login_fragment">
         <action
